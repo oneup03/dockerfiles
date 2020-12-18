@@ -23,12 +23,11 @@ RUN apt-get update && apt-get install -y \
 ENV RETROARCH_VERSION 2020-11-18
 ENV ROOT_WWW_PATH /var/www/html
 
+ADD r189 ${ROOT_WWW_PATH}
+
+RUN ls ${ROOT_WWW_PATH}
 
 RUN cd ${ROOT_WWW_PATH} \
-	&& wget https://buildbot.libretro.com/nightly/emscripten/${RETROARCH_VERSION}_RetroArch.7z \
-	&& 7z e -y ${RETROARCH_VERSION}_RetroArch.7z \
-	&& sed -i '/<script src="analytics.js"><\/script>/d' ./index.html \
-	&& cp canvas.png media/canvas.png \
 	&& chmod +x indexer \
 	&& mkdir -p ${ROOT_WWW_PATH}/assets/frontend/bundle/shaders \
 	&& mkdir -p ${ROOT_WWW_PATH}/assets/frontend/bundle/database \
@@ -58,7 +57,6 @@ RUN cd ${ROOT_WWW_PATH} \
 	&& ../../../indexer > .index-xhr \
 	&& cd ${ROOT_WWW_PATH}/assets/cores \
 	&& ../../indexer > .index-xhr \
-	&& rm -rf ${ROOT_WWW_PATH}/${RETROARCH_VERSION}_RetroArch.7z \
 	&& rm -rf ${ROOT_WWW_PATH}/assets/frontend/*.zip
 
 WORKDIR ${ROOT_WWW_PATH}
