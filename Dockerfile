@@ -30,7 +30,7 @@ RUN cd ${ROOT_WWW_PATH} \
 	&& sed -i '/<script src="analytics.js"><\/script>/d' ./index.html \
 	&& cp canvas.png media/canvas.png \
 	&& chmod +x indexer \
-	&& mkdir -p ${ROOT_WWW_PATH}/assets/frontend \
+	&& mkdir -p ${ROOT_WWW_PATH}/assets/frontend/bundle \
 	&& mkdir -p ${ROOT_WWW_PATH}/assets/cores \
 	&& cd ${ROOT_WWW_PATH}/assets/frontend \
 	&& wget https://buildbot.libretro.com/assets/frontend/assets.zip \
