@@ -1,30 +1,31 @@
-# dockerfiles
-Some Dockerfiles
+# Docker image inglebard/retroarch-web
+Self-hosted retroarch web player.
+[Github](https://github.com/Inglebard/dockerfiles/tree/retroarch-web/)
+[Dockerhub](https://hub.docker.com/r/inglebard/retroarch-web/)
 
+## Why use this image :
 
+This image was created to have remote play to retro game.
 
-angular-cli : https://github.com/Inglebard/dockerfiles/tree/angular-cli
+## Technical information :
 
-firefox : https://github.com/Inglebard/dockerfiles/tree/firefox
+### Softwares :
+* nginx
 
-meteor : https://github.com/Inglebard/dockerfiles/tree/meteor
+### Ports :
+* 80
 
-monaserver2 : https://github.com/Inglebard/dockerfiles/tree/monaserver2
+### Volumes :
+You may need to mount game folder
 
-murmur : https://github.com/Inglebard/dockerfiles/tree/murmur
+## How to use this image :
 
-reactjs : https://github.com/Inglebard/dockerfiles/tree/reactjs
+You can run this image like this:
+```
+docker run --rm -it -p 8080:80 inglebard/retroarch-web
 
-retroarch-web : https://github.com/Inglebard/dockerfiles/tree/retroarch-web
+```
 
-retroarch-web-nightly : https://github.com/Inglebard/dockerfiles/tree/retroarch-web-nightly
-
-sails : https://github.com/Inglebard/dockerfiles/tree/sails
-
-steam : https://github.com/Inglebard/dockerfiles/tree/steam
-
-tor-browser : https://github.com/Inglebard/dockerfiles/tree/tor-browser
-
-tor-relay : https://github.com/Inglebard/dockerfiles/tree/tor-relay
-
-vue-cli : https://github.com/Inglebard/dockerfiles/tree/vue-cli
+## Thanks
+This image was created from
+* https://github.com/libretro/RetroArch/tree/master/pkg/emscripten
